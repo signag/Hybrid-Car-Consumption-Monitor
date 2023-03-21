@@ -43,6 +43,6 @@ In the current setup, these are implemented in Python and run on a [Rspberry Pi 
 
 ## Setup
 
-1. [Setup InfluxDB](docs/setupInfluxDB.md)
-2. [Setup Charging Observer](docs/setupChargingObserver.md)
+1. [Setup InfluxDB](./docs/setupInfluxDB.md)
+2. [Setup Charging Observer](./docs/setupChargingObserver.md)
 3. 

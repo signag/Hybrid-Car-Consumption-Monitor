@@ -45,7 +45,7 @@ In the following template the entries in ```<...>``` need to be adjusted.
         {
             "ain" : "<actorIdentificationNumber>",
             "location" : "Garage",
-            "sublocation" : "Charging",
+            "sublocation" : "Vehicle Identification Number",
             "measurements" : {
                 "voltage" : false,
                 "power" : true,
@@ -74,8 +74,8 @@ In the following template the entries in ```<...>``` need to be adjusted.
 | csvFile              | Path to the csv file (Only required if cvsOutput=true)
 | **devices**          | List of devices to be monitored. Here only the Fritz!Dect 2x0 used for charging needs to be listed
 | - ain                | Actor Identification Number of the device. It is printed on the device and can be shown in the Fritz!Box
-| - location           | Location where the device is located.
-| - sublocation        | Location detail where the device is located
+| - location           | Location where the device is located. The entry is just for information and can be arbitrarily chosen.
+| - sublocation        | This needs to be the Vehicle Identification Number (VIN) of the car being charged at this device. The VIN also identifies the car in the manufacturers cloud services (VW WE Connect)
 | - **measurements**   | List of measurements to be performed. For this purpose, only power is required
 | -- voltage           | Specifies whether voltage shall be measured (true)
 | -- power             | Specifies whether power shall be measured (false)
