@@ -12,11 +12,11 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 
 |Step|Action
 |----|-----------------------------------------------------
-|1.  | Select a suitable Linux machine having access to the Fritz"Box on one side and to the InfluxDB server on the other.<br/>The current setup uses a Raspberry Pi 4
+|1.  | Select a suitable Linux machine with Python 3.7 or later, having access to the Fritz!Box on one side and to the InfluxDB server on the other.<br/>The current setup uses a Raspberry Pi 4
 |2.  | Install **fritzToInfluxHA** (```[sudo] pip install fritzToInfluxHA```)
 |3.  | On the Fritz!Box configure a specific user with Smart Home permission. It is recommended not to allow internet access.
 |4.  | Create and stage configuration file for **fritzToInfluxHA** (see [Configuration](#configuration))
-|5   | Adjust the service configuration file, if required. Especially check python path and user (see [Service](#Service))
+|5   | Adjust the service configuration file, if required. Especially check python path and user (see [Service](#service))
 |6.  | Stage configuration file: ```sudo cp fritzToInfluxHA.service /etc/systemd/system```
 |7.  | Start service: ```sudo systemctl start fritzToInfluxHA.service```
 |8.  | Check log: ```sudo journalctl -e``` should show that **fritzToInfluxHA** has successfully started
@@ -26,7 +26,7 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 ### Configuration
 
 A configuration file "fritzToInfluxHA.json" shall be staged under ```$HOME/.config```
-In the following template the entries in ```<...>``` need to be adjusted.
+In the following template the entries in ```<...>``` need to be replaced by their correct values.
 
 ```json
 {
@@ -44,12 +44,12 @@ In the following template the entries in ```<...>``` need to be adjusted.
     "devices" : [
         {
             "ain" : "<actorIdentificationNumber>",
-            "location" : "Garage",
-            "sublocation" : "Vehicle Identification Number",
+            "location" : "CarCharger",
+            "sublocation" : "<Vehicle Identification Number>",
             "measurements" : {
                 "voltage" : false,
                 "power" : true,
-                "energy" : false,
+                "energy" : true,
                 "temperature" : false
             }
         }
@@ -68,7 +68,7 @@ In the following template the entries in ```<...>``` need to be adjusted.
 | InfluxOutput         | Specifies whether measurement shall be stored in InfluxDB (Needs to be set to true)
 | InfluxURL            | URL for access to Influx DB
 | InfluxOrg            | Organization Name specified during [InfluxDB installation](setupInfluxDb.md) Step 2
-| InfluxToken          | Influx API Token (see [InfluxDB installation](setupInfluxDb.md) Step 3
+| InfluxToken          | Influx API Token (see [InfluxDB installation](setupInfluxDb.md) Step 3)
 | InfluxBucket         | Bucket to be used for storage of measurements (Needs to be set to ```Car_Charging```)
 | csvOutput            | Specifies whether measurement data shall be written to a csv file (Default: false)
 | csvFile              | Path to the csv file (Only required if cvsOutput=true)
@@ -77,9 +77,9 @@ In the following template the entries in ```<...>``` need to be adjusted.
 | - location           | Location where the device is located. The entry is just for information and can be arbitrarily chosen.
 | - sublocation        | This needs to be the Vehicle Identification Number (VIN) of the car being charged at this device. The VIN also identifies the car in the manufacturers cloud services (VW WE Connect)
 | - **measurements**   | List of measurements to be performed. For this purpose, only power is required
-| -- voltage           | Specifies whether voltage shall be measured (true)
-| -- power             | Specifies whether power shall be measured (false)
-| -- energy            | Specifies whether enrgy shall be measured (false)
+| -- voltage           | Specifies whether voltage shall be measured (false)
+| -- power             | Specifies whether power shall be measured (true)
+| -- energy            | Specifies whether enrgy shall be measured (true)
 | -- temperature       | Specifies whether temperature shall be measured (false)
 
 ### Service
@@ -92,8 +92,8 @@ Description=FritzToInfluxHA
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/python3.10 -u fritzToInfluxHA.py -s
-WorkingDirectory=/usr/local/lib/python3.10/site-packages/fritzToInfluxHA-0.1.0-py3.10.egg/fritzToInfluxHA
+ExecStart=/usr/bin/python3 -u fritzToInfluxHA.py -s
+WorkingDirectory=/usr/local/lib/python3.7/dist-packages/fritzToInfluxHA
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
