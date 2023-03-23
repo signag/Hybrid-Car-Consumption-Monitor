@@ -15,7 +15,7 @@ option task = {name: "HCCM_CarCharging", every: 5m}
 option location = timezone.location(name: "Europe/Berlin")
 
 // !!! XXXXXXXXXXXXXXXXX ! Specify Vecicle Identification Number here !!!!!!!!!!!!!!!!!
-vin = "?????????????????"
+vin = "XXXXXXXXXXXXXXXXX"
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // For testing purposes, tStop may be set to a time shortly after a charging process has ended
@@ -93,6 +93,8 @@ consumptionFromCharging = () => {
                     "_stop",
                 ],
             )
+            // Sort with respect to _time to avoid issues with derivative
+            |> sort(columns: ["_time"])
             // We are not interested in absolute overall values but only in relative increments
             |> increase()
             // Now, we differentiate the energy to get the power
