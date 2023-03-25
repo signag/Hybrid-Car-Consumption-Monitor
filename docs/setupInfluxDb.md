@@ -26,7 +26,7 @@ The following steps describe the docker-based installation
 |6.  | On the Welcome page press ```GET STARTED```
 |7.  | On the next page enter the requested information and press ```CONTINUE```. For the configuration examples in this documentation, the following settings are assumed: <br/>Username: ```influxAdmin```<br/>Password: ```influxPwd```<br/>Initial Organization Name: ```HCCM```<br/>Initial Bucket Name: ```Car_Status```
 |8.  | On the following page, press ```QUICK START```
-|9.  | Create additional buckets required for Hybrid-Car-Consumption-Monitor.<br/>First open ```Buckets``` under ```Load Data``` and create the following buckets using the ```CREATE BUCKET``` button:<br/>Car_Charging<br/>Car_Consumption<br/>Car_Energy<br/>Car_Monthly<br/>Car_Trips<br/><br/>Initially, leave ```Delete Data``` at ```NEVER```
+|9.  | Create additional buckets required for Hybrid-Car-Consumption-Monitor.<br/>First open ```Buckets``` under ```Load Data``` and create the following buckets using the ```CREATE BUCKET``` button:<br/>Car_Charging<br/>Car_Consumption<br/>Car_Monthly<br/>Car_Trips<br/><br/>Initially, leave ```Delete Data``` at ```NEVER```
 
 ## 3. Memorize and Configure API Token
 

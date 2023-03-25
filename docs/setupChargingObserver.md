@@ -17,7 +17,7 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 |3.  | On the Fritz!Box configure a specific user with Smart Home permission. It is recommended not to allow internet access.
 |4.  | Create and stage configuration file for **fritzToInfluxHA** (see [Configuration](#configuration))
 |5   | Adjust the service configuration file, if required. Especially check python path and user (see [Service](#service))
-|6.  | Stage configuration file: ```sudo cp fritzToInfluxHA.service /etc/systemd/system```
+|6.  | Stage the service configuration file: ```sudo cp fritzToInfluxHA.service /etc/systemd/system```
 |7.  | Start service: ```sudo systemctl start fritzToInfluxHA.service```
 |8.  | Check log: ```sudo journalctl -e``` should show that **fritzToInfluxHA** has successfully started
 |9.  | In case of errors adjust service configuration file and restart service
@@ -25,7 +25,7 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 
 ### Configuration
 
-A configuration file "fritzToInfluxHA.json" shall be staged under ```$HOME/.config```
+A configuration file ```fritzToInfluxHA.json``` shall be staged under ```$HOME/.config```
 In the following template the entries in ```<...>``` need to be replaced by their correct values.
 
 ```json
@@ -63,7 +63,7 @@ In the following template the entries in ```<...>``` need to be replaced by thei
 |----------------------|------------------------------------------------------------------------------------------------------
 | measurementInterval  | Measurement interval in seconds. (Default: 120) (Note that the Fritz!Box will updata data only every 2 min.)
 | FritzBoxURL          | URL of the Fritz!Box (Default: "http://fritz.box/")
-| FritzBoxUser         | User to be used for FritzBox access. Needs th have "Smart Home" permission
+| FritzBoxUser         | User to be used for FritzBox access. Needs to have "Smart Home" permission
 | FritzBoxPassword     | Password for Fritz!Box user
 | InfluxOutput         | Specifies whether measurement shall be stored in InfluxDB (Needs to be set to true)
 | InfluxURL            | URL for access to Influx DB

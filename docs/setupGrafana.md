@@ -2,7 +2,7 @@
 
 For Grafana documentation, see [https://grafana.com/grafana/](https://grafana.com/grafana/).
 
-## 1. Installation of Influx DB OSS
+## 1. Installation of Grafana
 
 If Grafana is already available in your environment, you may decide to use this instance to add the additional dashboards required for the Hybrid-Car-Consumption-Monitor.
 
@@ -39,7 +39,7 @@ The following steps describe the docker-based installation
 ## 3. Import Dashboards
 
 Car-Consumption-Monitor includes a set of dashboards which need to be imported into Grafana.
-JSON files for each dashboard ara located at ```./grafana/Dashboards```.
+JSON files for each dashboard are located at ```./grafana/Dashboards```.
 The files may have a language suffix indicating the UI language used for the dashboard.
 
 |Step|Action
