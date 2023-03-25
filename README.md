@@ -1,6 +1,6 @@
 # Hybrid-Car-Consumption-Monitor
 
-This monitoring system can be used for gathering and visualization of car consumption data, especially for hybrid cars.
+This monitoring system can be used for gathering and [visualization](./docs/vizualization.md) of car consumption data, especially for hybrid cars.
 
 The system uses two sources of input:
 
@@ -47,3 +47,9 @@ In the current setup, these are implemented in Python and run on a [Rspberry Pi 
 2. [Setup Charging Observer](./docs/setupChargingObserver.md)
 3. [Setup Car Observer](./docs/setupCarObserver.md)
 4. [Create Influx Tasks](./docs/createInfluxTasks.md)
+5. [Specify Prices](./docs/specifyPrices.md)
+6. [Setup Grafana](./docs/setupGrafana.md)
+
+## Dashboards
+
+- [Dashboards for Hybrid-Car-Consumption-Monitor](./docs/vizualization.md)

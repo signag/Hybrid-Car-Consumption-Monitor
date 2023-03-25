@@ -14,15 +14,15 @@ The following steps describe the docker-based installation
 |Step|Action
 |----|-----------------------------------------------------
 |1.  | Make sure that Docker is running on the system to be used as server (see [Get Docker](https://docs.docker.com/get-docker/))
-|2.  | Create a directory to be used for data storage outside the influxDB container, e.g. ```$ROOT/docker/influxdb1``` with an arbitrary root directory ```$ROOT```
-|3.  | Create a directory to be used for configuration storage outside the influxDB container, e.g. ```$ROOT/docker/influxdb1_config```
+|2.  | Create a directory to be used for data storage outside the influxDB container, e.g. ```$ROOT/docker/influxdb``` with an arbitrary root directory ```$ROOT```
+|3.  | Create a directory to be used for configuration storage outside the influxDB container, e.g. ```$ROOT/docker/influxdb_configs```
 |4.  | Download and run latest version of influxDB:<br/>```docker run --detach --name influxdb -p 8086:8086 --env TZ=Europe/Berlin --volume $ROOT/docker/influxdb:/var/lib/influxdb2 --volume $ROOT/docker/influxdb-configs:/etc/influxdb2/influx-configs influxdb:latest --reporting-disabled```<br/> You will need to replace ```ROOT``` by your root directory and set the correct timezone variable ```TZ```. <br/> As a result, the container ID will be displayed and a running ```influxdb``` container will be shown on the Docker UI Container page.
 
 ## 2. Initial Configuration
 
 |Step|Action
 |----|-----------------------------------------------------
-|5.  | Open the InfluxDB UI through <br/> ```http://<server>:8086``` <br/> where ```<server``` is the network name of your server or 'localhost'
+|5.  | Open the InfluxDB UI through <br/> ```http://<server>:8086``` <br/> where ```<server>``` is the network name of your server or 'localhost'
 |6.  | On the Welcome page press ```GET STARTED```
 |7.  | On the next page enter the requested information and press ```CONTINUE```. For the configuration examples in this documentation, the following settings are assumed: <br/>Username: ```influxAdmin```<br/>Password: ```influxPwd```<br/>Initial Organization Name: ```HCCM```<br/>Initial Bucket Name: ```Car_Status```
 |8.  | On the following page, press ```QUICK START```
