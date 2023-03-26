@@ -2,7 +2,7 @@
 
 This monitoring system can be used for gathering and [visualization](./docs/vizualization.md) of car consumption data, especially for hybrid cars.
 
-The intent of the project was to verivy supplier information on electricity and fuel consumption under every-day conditions and to monitor realistic costs of electric versus gas engine.
+The intent of the project was to verify supplier information on electricity and fuel consumption under every-day conditions and to monitor realistic costs of electric versus gas engine.
 
 The system uses two sources of input:
 
