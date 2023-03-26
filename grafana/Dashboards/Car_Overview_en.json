@@ -46,8 +46,7 @@
     "panels": [
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -213,8 +212,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"tripsElectric\" or r[\"_field\"] == \"tripsTotal\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with tripsMixed: r.tripsTotal - r.tripsElectric}))",
@@ -226,8 +224,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -376,8 +373,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyConsumedTotal\" or r[\"_field\"] == \"electricEnergyChargedTotal\")\r\n",
@@ -389,8 +385,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -470,8 +465,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"mileageElectricChargeCycles\"or r[\"_field\"] == \"electricityPrice\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with consumptionNormCost: r.electricityPrice * 100.0 * r.electricEnergyChargedElectric / float(v: r.mileageElectricChargeCycles)}))\r\n  |> drop(columns: [\"electricEnergyChargedElectric\", \"mileageElectricChargeCycles\", \"electricityPrice\"])",
@@ -483,8 +477,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -649,8 +642,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"mileageElectric\" or r[\"_field\"] == \"mileageTotal\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with mileageMixed: r.mileageTotal - r.mileageElectric}))\r\n",
@@ -662,8 +654,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -828,8 +819,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"electricEnergyChargedTotal\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with electricEnergyChargedMixed: r.electricEnergyChargedTotal - r.electricEnergyChargedElectric}))",
@@ -841,8 +831,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -993,8 +982,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"electricEnergyChargedTotal\" or r[\"_field\"] == \"mileageElectricChargeCycles\" or r[\"_field\"] == \"mileageTotal\" or r[\"_field\"] == \"fuelConsumed\" or r[\"_field\"] == \"fuelPrice\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with mileageMixed: r.mileageTotal - r.mileageElectricChargeCycles}))\r\n  |> map(fn: (r) => ({r with electricEnergyChargedMixed: r.electricEnergyChargedTotal - r.electricEnergyChargedElectric}))\r\n  |> map(fn: (r) => ({r with consumptionNorm: 100.0 * r.electricEnergyChargedElectric / float(v: r.mileageElectricChargeCycles)}))\r\n  |> map(fn: (r) => ({r with mileageMixedEl: 100.0 * r.electricEnergyChargedMixed / r.consumptionNorm}))\r\n  |> map(fn: (r) => ({r with mileageMixedRed: float(v: r.mileageMixed) - r.mileageMixedEl}))\r\n  |> map(fn: (r) => ({r with fuelConsumptionNormCost: r.fuelPrice * 100.0 * r.fuelConsumed / r.mileageMixedRed}))\r\n  |> drop(columns: [\"electricEnergyChargedElectric\", \"electricEnergyChargedTotal\", \"mileageElectricChargeCycles\", \"mileageTotal\", \"fuelConsumed\", \"mileageMixed\", \"electricEnergyChargedMixed\", \"consumptionNorm\", \"mileageMixedEl\", \"mileageMixedRed\", \"fuelPrice\"])",
@@ -1006,8 +994,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1172,8 +1159,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"traveltimeElectric\" or r[\"_field\"] == \"traveltimeTotal\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with traveltimeMixed: r.traveltimeTotal - r.traveltimeElectric}))\r\n",
@@ -1185,8 +1171,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1321,8 +1306,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "  from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"electricEnergyConsumedElectricChargeCycles\" or r[\"_field\"] == \"mileageElectricChargeCycles\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with consumptionNorm: 100.0 * r.electricEnergyChargedElectric / float(v: r.mileageElectricChargeCycles)}))\r\n  |> map(fn: (r) => ({r with consumptionDisp: 100.0 * r.electricEnergyConsumedElectricChargeCycles / float(v: r.mileageElectricChargeCycles)}))\r\n  |> drop(columns: [\"electricEnergyChargedElectric\", \"mileageElectricChargeCycles\", \"electricEnergyConsumedElectricChargeCycles\"])\r\n\r\n",
@@ -1334,8 +1318,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1515,8 +1498,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedTotal\" or r[\"_field\"] == \"fuelConsumed\" or r[\"_field\"] == \"fuelPrice\" or r[\"_field\"] == \"electricityPrice\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with costElectricity: r.electricEnergyChargedTotal * r.electricityPrice}))\r\n  |> map(fn: (r) => ({r with costFuel: r.fuelConsumed * r.fuelPrice}))\r\n  |> map(fn: (r) => ({r with costTotal: r.costElectricity + r.costFuel}))\r\n  |> drop(columns: [\"electricEnergyChargedTotal\", \"fuelConsumed\", \"fuelPrice\", \"electricityPrice\"])",
@@ -1528,8 +1510,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1625,8 +1606,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"fuelConsumed\")\r\n",
@@ -1638,8 +1618,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1789,8 +1768,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"electricEnergyChargedTotal\" or r[\"_field\"] == \"mileageElectricChargeCycles\" or r[\"_field\"] == \"mileageTotal\"or r[\"_field\"] == \"fuelConsumed\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with mileageMixed: r.mileageTotal - r.mileageElectricChargeCycles}))\r\n  |> map(fn: (r) => ({r with electricEnergyChargedMixed: r.electricEnergyChargedTotal - r.electricEnergyChargedElectric}))\r\n  |> map(fn: (r) => ({r with consumptionNorm: 100.0 * r.electricEnergyChargedElectric / float(v: r.mileageElectricChargeCycles)}))\r\n  |> map(fn: (r) => ({r with mileageMixedEl: 100.0 * r.electricEnergyChargedMixed / r.consumptionNorm}))\r\n  |> map(fn: (r) => ({r with mileageMixedRed: float(v: r.mileageMixed) - r.mileageMixedEl}))\r\n  |> map(fn: (r) => ({r with fuelConsumptionNorm: 100.0 * r.fuelConsumed / r.mileageMixedRed}))\r\n  |> drop(columns: [\"electricEnergyChargedElectric\", \"electricEnergyChargedTotal\", \"mileageElectricChargeCycles\", \"mileageTotal\", \"fuelConsumed\", \"mileageMixed\", \"electricEnergyChargedMixed\", \"consumptionNorm\", \"mileageMixedEl\", \"mileageMixedRed\"])\r\n",
@@ -1802,8 +1780,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -1883,8 +1860,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Monthly\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"statistics\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"electricEnergyChargedElectric\" or r[\"_field\"] == \"electricEnergyChargedTotal\" or r[\"_field\"] == \"mileageElectricChargeCycles\" or r[\"_field\"] == \"mileageTotal\"or r[\"_field\"] == \"fuelConsumed\")\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> map(fn: (r) => ({r with mileageMixed: r.mileageTotal - r.mileageElectricChargeCycles}))\r\n  |> map(fn: (r) => ({r with electricEnergyChargedMixed: r.electricEnergyChargedTotal - r.electricEnergyChargedElectric}))\r\n  |> map(fn: (r) => ({r with consumptionNorm: 100.0 * r.electricEnergyChargedElectric / float(v: r.mileageElectricChargeCycles)}))\r\n  |> map(fn: (r) => ({r with mileageMixedEl: 100.0 * r.electricEnergyChargedMixed / r.consumptionNorm}))\r\n  |> map(fn: (r) => ({r with mileageMixedRed: float(v: r.mileageMixed) - r.mileageMixedEl}))\r\n  |> map(fn: (r) => ({r with fuelConsumptionNorm: 100.0 * r.fuelConsumed / r.mileageMixedRed}))\r\n  |> map(fn: (r) => ({r with fuelSaved: r.fuelConsumptionNorm * float(v: r.mileageTotal) / 100.0 - r.fuelConsumed}))\r\n  |> drop(columns: [\"electricEnergyChargedElectric\", \"electricEnergyChargedTotal\", \"mileageElectricChargeCycles\", \"mileageTotal\", \"fuelConsumed\", \"mileageMixed\", \"electricEnergyChargedMixed\", \"consumptionNorm\", \"mileageMixedEl\", \"mileageMixedRed\", \"fuelConsumptionNorm\"])\r\n",
@@ -1911,8 +1887,7 @@
                     "value": "XXXXXXXXXXXXXXXXX"
                 },
                 "datasource": {
-                    "type": "influxdb",
-                    "uid": "3398Ccf4z"
+                    "type": "influxdb"
                 },
                 "definition": "import \"influxdata/influxdb/schema\"\r\nschema.tagValues(bucket: \"Car_Status\", tag: \"vin\", start:1999-01-01T00:00:00Z)",
                 "description": "Vehicle Identification Number",

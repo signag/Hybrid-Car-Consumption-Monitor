@@ -45,8 +45,7 @@
     "panels": [
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "fieldConfig": {
                 "defaults": {
@@ -215,8 +214,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> map(fn: (r) => ({ r with endMileage: r.startMileage + r.tripMileage }))\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])\r\n  |> cumulativeSum(columns: [\"tripMileage\"])",
@@ -224,8 +222,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
@@ -233,8 +230,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] > 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
@@ -246,8 +242,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "fieldConfig": {
                 "defaults": {
@@ -389,8 +384,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"source\"] == \"CarCharger\" or r[\"source\"] == \"tripMixed\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> map(fn: (r) => ({r with tag: if r.source == \"CarCharger\" then 1 else 0}))\r\n  |> duplicate(column: \"tag\", as: \"tag2\")\r\n  |> difference(columns: [\"tag2\"], nonNegative: false, keepFirst: true, initialZero: true)\r\n  |> filter(fn: (r) => r[\"source\"] == \"CarCharger\" and r[\"tag2\"] == 0)\r\n  |> drop(columns: [\"process\", \"source\", \"tag\", \"tag2\", \"vin\"]) \r\n  |> cumulativeSum()",
@@ -398,8 +392,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"source\"] == \"CarCharger\" or r[\"source\"] == \"tripMixed\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> map(fn: (r) => ({r with tag: if r.source == \"CarCharger\" then 1 else 0}))\r\n  |> duplicate(column: \"tag\", as: \"tag2\")\r\n  |> difference(columns: [\"tag2\"], nonNegative: false, keepFirst: true, initialZero: true)\r\n  |> filter(fn: (r) => r[\"source\"] == \"CarCharger\" and r[\"tag2\"] == 0)\r\n  |> drop(columns: [\"process\", \"source\", \"tag\", \"tag2\", \"vin\"])  ",
@@ -411,8 +404,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -631,8 +623,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"charge\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"])",
@@ -640,8 +631,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"decharge\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"])",
@@ -649,8 +639,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"decharge\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"])\r\n  |> cumulativeSum()  ",
@@ -658,8 +647,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"energy\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"charge\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"]) \r\n  |> cumulativeSum()",
@@ -671,8 +659,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "fieldConfig": {
                 "defaults": {
@@ -810,8 +797,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"fuel\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"engine\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"])",
@@ -819,8 +805,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Consumption\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"fuel\")\r\n  |> filter(fn: (r) => r[\"process\"] == \"engine\")\r\n  |> group(columns: [\"_measurement\"], mode: \"by\")\r\n  |> sort(columns: [\"_time\", \"process\"])\r\n  |> drop(columns: [\"process\", \"source\", \"vin\"])\r\n  |> cumulativeSum()",
@@ -847,8 +832,7 @@
                     "value": "XXXXXXXXXXXXXXXXX"
                 },
                 "datasource": {
-                    "type": "influxdb",
-                    "uid": "3398Ccf4z"
+                    "type": "influxdb"
                 },
                 "definition": "import \"influxdata/influxdb/schema\"\r\nschema.tagValues(bucket: \"Car_Status\", tag: \"vin\", start:1999-01-01T00:00:00Z)",
                 "description": "Vehicle Identification Number",

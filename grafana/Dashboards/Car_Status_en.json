@@ -45,8 +45,7 @@
     "panels": [
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -126,8 +125,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "query": "from(bucket: \"Car_Status\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"carStatus\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"fuelLevel\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
                     "refId": "A"
@@ -138,8 +136,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -247,8 +244,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Status\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"carStatus\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"stateOfCharge\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
@@ -256,8 +252,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Charging\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"power\")\r\n  |> filter(fn: (r) => r[\"sublocation\"] == \"$car_vin\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
@@ -269,8 +264,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -349,8 +343,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "query": "from(bucket: \"Car_Status\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"carStatus\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"mileage\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
                     "refId": "A"
@@ -361,8 +354,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -467,8 +459,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Status\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"carStatus\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> filter(fn: (r) => r[\"_field\"] == \"batteryEnergy\")\r\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)",
@@ -476,8 +467,7 @@
                 },
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "from(bucket: \"Car_Charging\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"charged\")\r\n  |> filter(fn: (r) => r[\"sublocation\"] == \"$car_vin\")\r\n",
@@ -489,8 +479,7 @@
         },
         {
             "datasource": {
-                "type": "influxdb",
-                "uid": "3398Ccf4z"
+                "type": "influxdb"
             },
             "description": "",
             "fieldConfig": {
@@ -647,8 +636,7 @@
             "targets": [
                 {
                     "datasource": {
-                        "type": "influxdb",
-                        "uid": "3398Ccf4z"
+                        "type": "influxdb"
                     },
                     "hide": false,
                     "query": "tStartDef = 2022-10-01\r\ntStart = if v.timeRangeStart < tStartDef then v.timeRangeStart else tStartDef\r\ntStop = if v.timeRangeStop < now() then now() else v.timeRangeStop\r\nfrom(bucket: \"Car_Trips\")\r\n  |> range(start: tStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")",
@@ -714,8 +702,7 @@
                     "value": "WVWZZZ3CZJE260484"
                 },
                 "datasource": {
-                    "type": "influxdb",
-                    "uid": "3398Ccf4z"
+                    "type": "influxdb"
                 },
                 "definition": "import \"influxdata/influxdb/schema\"\r\nschema.tagValues(bucket: \"Car_Status\", tag: \"vin\", start:1999-01-01T00:00:00Z)",
                 "description": "Vehicle Identification Number",

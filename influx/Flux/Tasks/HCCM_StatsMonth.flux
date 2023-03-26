@@ -8,7 +8,7 @@ import "date"
 import "array"
 import "experimental/date/boundaries"
 
-option task = {name: "HCCM_StatsMonth", every: 1mo, offset: 1h}
+option task = {name: "HCCM_StatsCurMonth", every: 1h}
 
 option location = timezone.location(name: "Europe/Berlin")
 
