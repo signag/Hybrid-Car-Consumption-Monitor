@@ -116,7 +116,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamt"
+                                "value": "Total"
                             }
                         ]
                     },
@@ -128,7 +128,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "rein Elektrisch"
+                                "value": "Only electric"
                             }
                         ]
                     },
@@ -140,14 +140,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Gemischt"
+                                "value": "Mixed"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "rein Elektrisch"
+                            "options": "Only electric"
                         },
                         "properties": [
                             {
@@ -162,7 +162,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -177,7 +177,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gesamt"
+                            "options": "Total"
                         },
                         "properties": [
                             {
@@ -221,7 +221,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Fahrten",
+            "title": "Trips",
             "type": "timeseries"
         },
         {
@@ -286,7 +286,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -306,7 +306,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Ladestrom"
+                                "value": "Charging"
                             }
                         ]
                     },
@@ -318,14 +318,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Verbrauchsanzeige"
+                                "value": "Car Display"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Ladestrom"
+                            "options": "Charging"
                         },
                         "properties": [
                             {
@@ -340,7 +340,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauchsanzeige"
+                            "options": "Car Display"
                         },
                         "properties": [
                             {
@@ -384,7 +384,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Stromverbrauch - Anzeige und tatsächlicher Verbrauch",
+            "title": "Electricity Consumption - Car Display vs. Real Consumption",
             "type": "timeseries"
         },
         {
@@ -428,7 +428,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Elektrisch",
+                    "displayName": "Electric",
                     "mappings": [],
                     "min": 0.0001,
                     "thresholds": {
@@ -478,7 +478,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Stromkosten / 100 km",
+            "title": "Electricity Cost / 100 km",
             "type": "timeseries"
         },
         {
@@ -552,7 +552,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamt"
+                                "value": "Total"
                             }
                         ]
                     },
@@ -564,7 +564,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "rein Elektrisch"
+                                "value": "Only electric"
                             }
                         ]
                     },
@@ -576,14 +576,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Gemischt"
+                                "value": "Mixed"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "rein Elektrisch"
+                            "options": "Only electric"
                         },
                         "properties": [
                             {
@@ -598,7 +598,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -613,7 +613,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gesamt"
+                            "options": "Total"
                         },
                         "properties": [
                             {
@@ -657,7 +657,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Gefahrene Strecke",
+            "title": "Total Mileage",
             "type": "timeseries"
         },
         {
@@ -731,7 +731,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamt"
+                                "value": "Total"
                             }
                         ]
                     },
@@ -743,7 +743,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Nur elektrisch"
+                                "value": "Only electric"
                             }
                         ]
                     },
@@ -755,14 +755,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Gemischt"
+                                "value": "Mixed"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Nur elektrisch"
+                            "options": "Only electric"
                         },
                         "properties": [
                             {
@@ -777,7 +777,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -792,7 +792,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gesamt"
+                            "options": "Total"
                         },
                         "properties": [
                             {
@@ -836,7 +836,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Stromverbrauch - Rein elektrische und gemischte Fahrten",
+            "title": "Electricity Consumption - All Trips",
             "type": "timeseries"
         },
         {
@@ -880,7 +880,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Gemischt",
+                    "displayName": "Mixed",
                     "links": [],
                     "mappings": [],
                     "min": 0.0001,
@@ -908,7 +908,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Tatsächlicher Verbrauch"
+                                "value": "Real Consumption"
                             }
                         ]
                     },
@@ -920,14 +920,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Verbrauch nach Anzeige"
+                                "value": "Consumption according to Car Display"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch nach Anzeige"
+                            "options": "Consumption according to Car Display"
                         },
                         "properties": [
                             {
@@ -942,7 +942,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Tatsächlicher Verbrauch"
+                            "options": "Real Consumption"
                         },
                         "properties": [
                             {
@@ -957,7 +957,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -1001,7 +1001,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Benzinkosten / 100 km",
+            "title": "Fuel Cost / 100 km",
             "type": "timeseries"
         },
         {
@@ -1075,7 +1075,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamt"
+                                "value": "Total"
                             }
                         ]
                     },
@@ -1087,7 +1087,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "rein Elektrisch"
+                                "value": "Only electric"
                             }
                         ]
                     },
@@ -1099,14 +1099,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Gemischt"
+                                "value": "Mixed"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "rein Elektrisch"
+                            "options": "Only electric"
                         },
                         "properties": [
                             {
@@ -1121,7 +1121,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -1136,7 +1136,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gesamt"
+                            "options": "Total"
                         },
                         "properties": [
                             {
@@ -1180,7 +1180,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Fahrzeit",
+            "title": "Travel Time",
             "type": "timeseries"
         },
         {
@@ -1224,7 +1224,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Gemischt",
+                    "displayName": "Mixed",
                     "mappings": [],
                     "min": 0.0001,
                     "thresholds": {
@@ -1251,7 +1251,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Tatsächlicher Verbrauch"
+                                "value": "Real Consumption"
                             }
                         ]
                     },
@@ -1263,14 +1263,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Verbrauch nach Anzeige"
+                                "value": "Consumption according to Car Display"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Tatsächlicher Verbrauch"
+                            "options": "Real Consumption"
                         },
                         "properties": [
                             {
@@ -1285,7 +1285,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch nach Anzeige"
+                            "options": "Consumption according to Car Display"
                         },
                         "properties": [
                             {
@@ -1329,7 +1329,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Stromverbrauch / 100 km",
+            "title": "Electricity Consumption / 100 km",
             "type": "timeseries"
         },
         {
@@ -1403,7 +1403,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamt"
+                                "value": "Total"
                             }
                         ]
                     },
@@ -1415,7 +1415,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Strom"
+                                "value": "Electricity"
                             }
                         ]
                     },
@@ -1427,14 +1427,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Benzin"
+                                "value": "Fuel"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Nur elektrisch"
+                            "options": "Only electric"
                         },
                         "properties": [
                             {
@@ -1449,7 +1449,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Strom"
+                            "options": "Electricity"
                         },
                         "properties": [
                             {
@@ -1464,7 +1464,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Benzin"
+                            "options": "Fuel"
                         },
                         "properties": [
                             {
@@ -1479,7 +1479,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gesamt"
+                            "options": "Total"
                         },
                         "properties": [
                             {
@@ -1523,7 +1523,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Gesamtkosten - Benzin und Strom",
+            "title": "Total Cost - Fuel and Electricity",
             "type": "timeseries"
         },
         {
@@ -1567,7 +1567,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Gemischt",
+                    "displayName": "Mixed",
                     "mappings": [],
                     "min": 0.0001,
                     "thresholds": {
@@ -1589,7 +1589,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -1633,7 +1633,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Benzinverbrauch",
+            "title": "Fuel Consumption",
             "type": "timeseries"
         },
         {
@@ -1677,7 +1677,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Gemischt",
+                    "displayName": "Mixed",
                     "mappings": [],
                     "min": 0.0001,
                     "thresholds": {
@@ -1704,7 +1704,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Tatsächlicher Verbrauch"
+                                "value": "Real Consumption"
                             }
                         ]
                     },
@@ -1716,14 +1716,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Verbrauch nach Anzeige"
+                                "value": "Consumption according to Car Display"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch nach Anzeige"
+                            "options": "Consumption according to Car Display"
                         },
                         "properties": [
                             {
@@ -1738,7 +1738,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Tatsächlicher Verbrauch"
+                            "options": "Real Consumption"
                         },
                         "properties": [
                             {
@@ -1753,7 +1753,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Gemischt"
+                            "options": "Mixed"
                         },
                         "properties": [
                             {
@@ -1797,7 +1797,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Benzinverbrauch / 100 km (aus gemischten Fahrten ohne Elektro-Anteil)",
+            "title": "Fuel Consumption / 100 km (from mixed trips without electric part)",
             "type": "timeseries"
         },
         {
@@ -1841,7 +1841,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Elektrisch",
+                    "displayName": "Electric",
                     "mappings": [],
                     "min": 0.0001,
                     "thresholds": {
@@ -1891,7 +1891,7 @@
                     "refId": "A"
                 }
             ],
-            "title": "Einsparung Benzin",
+            "title": "Fuel Savings",
             "type": "timeseries"
         }
     ],
@@ -1937,7 +1937,7 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "KFZ",
+    "title": "Car Overview",
     "uid": "UNhktYOVz",
     "version": 10,
     "weekStart": ""

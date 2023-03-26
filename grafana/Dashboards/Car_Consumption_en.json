@@ -125,7 +125,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Gesamtstrecke - nur elektrisch"
+                                "value": "Total Mileage - only electric Trips"
                             },
                             {
                                 "id": "custom.axisGridShow",
@@ -145,7 +145,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Fahrten - nur elektrisch"
+                                "value": "Trips - only electric"
                             }
                         ]
                     },
@@ -157,14 +157,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Fahrten - gemischt"
+                                "value": "Trips - electric & fuel"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Fahrten - nur elektrisch"
+                            "options": "Trips - only electric"
                         },
                         "properties": [
                             {
@@ -179,7 +179,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Fahrten - gemischt"
+                            "options": "Trips - electric & fuel"
                         },
                         "properties": [
                             {
@@ -241,7 +241,7 @@
                     "refId": "C"
                 }
             ],
-            "title": "Fahrten - nur elektrisch",
+            "title": "Trips - Purely electric",
             "type": "timeseries"
         },
         {
@@ -285,7 +285,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Energie pro Ladevorgang",
+                    "displayName": "Energy per Charging Cycle",
                     "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
@@ -327,7 +327,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Energie kumuliert"
+                                "value": "Energy accumulated"
                             },
                             {
                                 "id": "custom.fillOpacity",
@@ -338,7 +338,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Energie pro Ladevorgang"
+                            "options": "Energy per Charging Cycle"
                         },
                         "properties": [
                             {
@@ -353,7 +353,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Energie kumuliert"
+                            "options": "Energy accumulated"
                         },
                         "properties": [
                             {
@@ -406,7 +406,7 @@
                     "refId": "B"
                 }
             ],
-            "title": "Ladeenergie - rein elektrische Fahrten",
+            "title": "Charged Energy - purely electric Trips",
             "type": "timeseries"
         },
         {
@@ -487,7 +487,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Kumulierter Verbrauch nach Anzeige"
+                                "value": "Accumulated consumption according to Car Display"
                             },
                             {
                                 "id": "custom.fillOpacity",
@@ -515,7 +515,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Ladeenergie kumuliert"
+                                "value": "Charged Energy accumulated"
                             },
                             {
                                 "id": "custom.fillOpacity",
@@ -531,7 +531,7 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Ladeenergie"
+                                "value": "Charged Energy"
                             }
                         ]
                     },
@@ -543,14 +543,14 @@
                         "properties": [
                             {
                                 "id": "displayName",
-                                "value": "Verbrauch nach Anzeige"
+                                "value": "Consumption according to Car Display"
                             }
                         ]
                     },
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Ladeenergie"
+                            "options": "Charged Energy"
                         },
                         "properties": [
                             {
@@ -565,7 +565,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Ladeenergie kumuliert"
+                            "options": "Charged Energy accumulated"
                         },
                         "properties": [
                             {
@@ -580,7 +580,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Kumulierter Verbrauch nach Anzeige"
+                            "options": "Accumulated Consumption according to Car Display"
                         },
                         "properties": [
                             {
@@ -595,7 +595,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch nach Anzeige"
+                            "options": "Consumption according to Car Display"
                         },
                         "properties": [
                             {
@@ -666,7 +666,7 @@
                     "refId": "D"
                 }
             ],
-            "title": "Ladeenergie - Alle Fahrten - Vergleich Ladeenergie mit Verbrauch nach Anzeige",
+            "title": "Charged Energy - All Trips - Comparison Charging vs. Car Display",
             "type": "timeseries"
         },
         {
@@ -710,7 +710,7 @@
                             "mode": "off"
                         }
                     },
-                    "displayName": "Verbrauch pro Fahrt",
+                    "displayName": "Consumption per Trip",
                     "mappings": [],
                     "thresholds": {
                         "mode": "absolute",
@@ -748,7 +748,7 @@
                             },
                             {
                                 "id": "displayName",
-                                "value": "Verbrauch kumuliert"
+                                "value": "Consumption accumulated"
                             },
                             {
                                 "id": "custom.fillOpacity",
@@ -759,7 +759,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch pro Fahrt"
+                            "options": "Consumption per Trip"
                         },
                         "properties": [
                             {
@@ -774,7 +774,7 @@
                     {
                         "matcher": {
                             "id": "byName",
-                            "options": "Verbrauch kumuliert"
+                            "options": "Consumption accumulated"
                         },
                         "properties": [
                             {
@@ -827,7 +827,7 @@
                     "refId": "B"
                 }
             ],
-            "title": "Benzinverbrauch",
+            "title": "Fuel Consumption",
             "type": "timeseries"
         }
     ],
@@ -873,7 +873,7 @@
     },
     "timepicker": {},
     "timezone": "",
-    "title": "KFZ Verbrauch",
+    "title": "Car Consumption",
     "uid": "BlTYFZO4z",
     "version": 8,
     "weekStart": ""
