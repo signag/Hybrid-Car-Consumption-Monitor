@@ -1,7 +1,7 @@
 # Hybrid Car Consumption Vizualization
 
 Here is a short description of dashboards for the Hybrid-Car-Consumption-Monitor
-
+in case that
 - [Hybrid Car Consumption Vizualization](#hybrid-car-consumption-vizualization)
   - [Car Overview](#car-overview)
     - [Selector: VIN](#selector-vin)
@@ -40,16 +40,16 @@ Here is a short description of dashboards for the Hybrid-Car-Consumption-Monitor
 
 ![Car Overview](img/HCCM_Car_Overview_en.jpg)
 
-This dashboard shows varipos KPIs on a monthly base.
+This dashboard shows various KPIs on a monthly base.
 Note that synchronization of x-axis labels with monthly bars is shifted by one month because of a lack of x-axis formatting capabilities in Grafana.
 
 ### Selector: VIN
 
-Allows selecting the car's Vehicle Identification Number, in cas that the database contains data for multiple cars
+Allows selecting the car's Vehicle Identification Number, in case that the database contains data for multiple cars.
 
 ### Panel: Trips
 
-Shows the number of trips per month as stacekd bars differentiated by purely electric trips without fuel consumption (green) and mixed trips with fuel consumption (red)
+Shows the number of trips per month as stacked bars differentiated by purely electric trips without fuel consumption (green) and mixed trips with fuel consumption (red)
 
 ### Panel: Total Mileage
 
@@ -65,8 +65,8 @@ Shows the total fuel consumption per month.
 
 ### Panel: Electricity Consumption - Car Display vs. Real Consumption
 
-This panel shows the consumption of electricity per month as overapping bars.
-The yellow bars represent the the consumption according to car display, as received from the manufacturers cloud services.
+This panel shows the consumption of electricity per month as overlapping bars.
+The yellow bars represent the consumption according to car display, as received from the manufacturers cloud services.
 The blue bars represent the consumption according to charging. This is the real consumption.
 
 ### Panel: Electricity Consumption - All Trips
@@ -85,15 +85,15 @@ Using this together with the mileage of these trips, the real normalized electri
 Fuel consumption per month is determined from all mixed trips, having fuel and electricity consumption.
 The mileage for these trips is reduced by the mileage which would have been covered with electric drive only. This is determined from the electricity consumed for the mixed trips and the normalized electricity consumption (see above).
 
-Note that abnormously high fuel consumption may be shown in month where the engine has only been used during very short periods.
+Note that abnormously high fuel consumption may be shown in months where the engine has only been used during very short periods.
 
 ### Panel: Electricity Cost / 100 km
 
-This panel shows the real cost for electricity for 100 km, considering the [electricity Price](./specifyPrices.md) specified on a monthly base.
+This panel shows the real cost for electricity for 100 km, considering the [Electricity Price](./specifyPrices.md) specified on a monthly base.
 
 ### Panel: Fuel Cost / 100 km
 
-This panel shows the real cost for fuel for 100 km, considering the [efuel Price](./specifyPrices.md) specified on a monthly base.
+This panel shows the real cost for fuel for 100 km, considering the [Fuel Price](./specifyPrices.md) specified on a monthly base.
 
 ### Panel: Total Cost - Fuel and Electricity
 
@@ -111,7 +111,7 @@ This dashboard shows the available information on car status as well as a list o
 
 ### Selector: VIN (Car Status)
 
-Allows selecting the car's Vehicle Identification Number, in cas that the database contains data for multiple cars
+Allows selecting the car's Vehicle Identification Number, in case that the database contains data for multiple cars.
 
 ### Panel: Fill Level Gas Tank
 
@@ -131,8 +131,8 @@ The yellow curve shows the power supplied by the charging device.
 
 The green curve shows the charging level (as energy in kWh) of the high-voltage battery.
 The yellow curve shows the energy supplied by the charging device over time.
-Note that the measured energy curve has been modified in a way to show only the incrementy during charging cycles.
-These are determined by detectin rising and falling power at the device.
+Note that the measured energy curve has been modified in a way to show only the increments during charging cycles.
+These are determined by detecting rising and falling power at the device.
 
 ### Panel: Trips (Car Status)
 
@@ -155,7 +155,7 @@ This panel is a graphical representation of trips during the selected period, co
 
 ### Selector: VIN (Car Consumption)
 
-Allows selecting the car's Vehicle Identification Number, in cas that the database contains data for multiple cars
+Allows selecting the car's Vehicle Identification Number, in case that the database contains data for multiple cars.
 
 ### Panel: Trips - Purely electric
 
@@ -167,7 +167,7 @@ The curve represents the mileage for purely electric trips accumulated over time
 ### Panel: Charged Energy - purely electric Trips
 
 This panel shows charging cycles after purely electric trips.
-A charging cycle is represented by a bar at the time when charing has ended with the hight of the charged energy.
+A charging cycle is represented by a bar at the time when charging has ended with the hight of the charged energy.
 The curve shows the accumumulated energy within the selected time range (right axis)
 
 ### Panel: Charged Energy - All Trips - Comparison Charging vs. Car Display
@@ -197,7 +197,7 @@ This dashboard includes a few KPI representations which might be included in a l
 
 ### Selector: VIN (Car Cockpit)
 
-Allows selecting the car's Vehicle Identification Number, in cas that the database contains data for multiple cars
+Allows selecting the car's Vehicle Identification Number, in case that the database contains data for multiple cars.
 
 ### Panel: Mileage (Car Cockpit)
 

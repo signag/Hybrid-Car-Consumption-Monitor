@@ -26,7 +26,7 @@ The following steps describe the docker-based installation
 |6.  | On the Welcome page press ```GET STARTED```
 |7.  | On the next page enter the requested information and press ```CONTINUE```. For the configuration examples in this documentation, the following settings are assumed: <br/>Username: ```influxAdmin```<br/>Password: ```influxPwd```<br/>Initial Organization Name: ```HCCM```<br/>Initial Bucket Name: ```Car_Status```
 |8.  | On the following page, press ```QUICK START```
-|9.  | Create additional buckets required for Hybrid-Car-Consumption-Monitor.<br/>First open ```Buckets``` under ```Load Data``` and create the following buckets using the ```CREATE BUCKET``` button:<br/>Car_Charging<br/>Car_Consumption<br/>Car_Monthly<br/>Car_Trips<br/><br/>Initially, leave ```Delete Data``` at ```NEVER```
+|9.  | Create additional buckets required for Hybrid-Car-Consumption-Monitor.<br/>First open ```Buckets``` under ```Load Data``` and create the following buckets using the ```CREATE BUCKET``` button:<br/>Car_Charging<br/>Car_Consumption<br/>Car_Monthly<br/>Car_Status<br/>Car_Trips<br/><br/>Initially, leave ```Delete Data``` at ```NEVER```
 
 ## 3. Memorize and Configure API Token
 
@@ -46,5 +46,5 @@ The CLI will usually be installed on your working system, be it Windows, Mac or 
 |Step|Action
 |----|-----------------------------------------------------
 |13. | Follow the instructions under [Install and use the influx CLI](https://docs.influxdata.com/influxdb/v2.6/tools/influx-cli/) for installation.
-|14. | To provide required authentication credentials for the CLI, execute the following influx command on the command line of the system where the CLI was installed:<br/>```influx config create --config-name cfgHCCM --host-url http://<server>:8086 --org HCCM --token <influxToken> --active```<br/>wher ```<server>``` needs to be replaced by the server name and ```<influxToken>``` by the token obtained in step 3.<br/>See [influx config](https://docs.influxdata.com/influxdb/v2.6/reference/cli/influx/config/) for details on the command.
+|14. | To provide required authentication credentials for the CLI, execute the following influx command on the command line of the system where the CLI was installed:<br/>```influx config create --config-name cfgHCCM --host-url http://<server>:8086 --org HCCM --token <influxToken> --active```<br/>where ```<server>``` needs to be replaced by the server name and ```<influxToken>``` by the token obtained in step 3.<br/>See [influx config](https://docs.influxdata.com/influxdb/v2.6/reference/cli/influx/config/) for details on the command.
 |15. | Execute CLI command<br/>```influx bucket list```<br/>to verify that the Influx CLI works correctly for the installed database.

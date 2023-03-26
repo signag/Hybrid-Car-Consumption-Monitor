@@ -1,6 +1,6 @@
 # Setup of Charging Observer
 
-The Charging Observer is a service which cyclically queries the car charging device for current power and stores the measured values in the InfluxDB.
+The Charging Observer (see [Architecture](architecture.md)) is a service which cyclically queries the car charging device for current power and stores the measured values in the InfluxDB bucket [Car_Charging](./influxDBDataSchema.md#car_charging).
 
 The service to be used depends on the device type.
 
@@ -16,7 +16,7 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 |2.  | Install **fritzToInfluxHA** (```[sudo] pip install fritzToInfluxHA```)
 |3.  | On the Fritz!Box configure a specific user with Smart Home permission. It is recommended not to allow internet access.
 |4.  | Create and stage configuration file for **fritzToInfluxHA** (see [Configuration](#configuration))
-|5   | Adjust the service configuration file, if required. Especially check python path and user (see [Service](#service))
+|5   | Create and adjust the service configuration file, if required. Especially check python path and user (see [Service](#service))
 |6.  | Stage the service configuration file: ```sudo cp fritzToInfluxHA.service /etc/systemd/system```
 |7.  | Start service: ```sudo systemctl start fritzToInfluxHA.service```
 |8.  | Check log: ```sudo journalctl -e``` should show that **fritzToInfluxHA** has successfully started
@@ -26,7 +26,7 @@ Measurement data will be stored in Influx Bucket ```Car_Charging```
 ### Configuration
 
 A configuration file ```fritzToInfluxHA.json``` shall be staged under ```$HOME/.config```
-In the following template the entries in ```<...>``` need to be replaced by their correct values.
+In the following template, the entries in ```<...>``` need to be replaced by their correct values.
 
 ```json
 {
@@ -61,7 +61,7 @@ In the following template the entries in ```<...>``` need to be replaced by thei
 
 | Parameter            | Description
 |----------------------|------------------------------------------------------------------------------------------------------
-| measurementInterval  | Measurement interval in seconds. (Default: 120) (Note that the Fritz!Box will updata data only every 2 min.)
+| measurementInterval  | Measurement interval in seconds. (Default: 120) (Note that the Fritz!Box will update data only every 2 min.)
 | FritzBoxURL          | URL of the Fritz!Box (Default: "http://fritz.box/")
 | FritzBoxUser         | User to be used for FritzBox access. Needs to have "Smart Home" permission
 | FritzBoxPassword     | Password for Fritz!Box user
@@ -72,9 +72,9 @@ In the following template the entries in ```<...>``` need to be replaced by thei
 | InfluxBucket         | Bucket to be used for storage of measurements (Needs to be set to ```Car_Charging```)
 | csvOutput            | Specifies whether measurement data shall be written to a csv file (Default: false)
 | csvFile              | Path to the csv file (Only required if cvsOutput=true)
-| **devices**          | List of devices to be monitored. Here only the Fritz!Dect 2x0 used for charging needs to be listed
+| **devices**          | List of devices to be monitored. Here only the Fritz!Dect 2x0, used for charging, needs to be listed
 | - ain                | Actor Identification Number of the device. It is printed on the device and can be shown in the Fritz!Box
-| - location           | Location where the device is located. The entry is just for information and can be arbitrarily chosen.
+| - location           | Location where the device is located. The entry must be set to ```CarCharger```. It is used in some queries in Flux scripts in Influx and Grafana.
 | - sublocation        | This needs to be the Vehicle Identification Number (VIN) of the car being charged at this device. The VIN also identifies the car in the manufacturers cloud services (VW WE Connect)
 | - **measurements**   | List of measurements to be performed. For this purpose, only power is required
 | -- voltage           | Specifies whether voltage shall be measured (false)

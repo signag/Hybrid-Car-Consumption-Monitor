@@ -2,6 +2,8 @@
 
 This monitoring system can be used for gathering and [visualization](./docs/vizualization.md) of car consumption data, especially for hybrid cars.
 
+The intent of the project was to verivy supplier information on electricity and fuel consumption under every-day conditions and to monitor realistic costs of electric versus gas engine.
+
 The system uses two sources of input:
 
 1. The car charging system, which is, in its simplest version, a metered power outlet from which charging power over time is obtained.
@@ -19,8 +21,10 @@ This documentation assumes a specific configuration, which will be detailed belo
 
 Monitoring the charging process requires a charging system with an interface through which access to the current charging power is available.
 
-In the current setup, a Volkswagen VW Passat GTE (model 2018) is charged through a normal power outlet.
+In the current setup, a Volkswagen VW Passat GTE (model 2018) is exclusively charged through a normal power outlet.
 A smart plug [Fritz!DECT210](https://en.avm.de/products/smart-home/fritzdect-210/) is used in connection with a [Fritz!Box](https://en.avm.de/products/fritzbox/) to track the charging power over time.
+
+External charging without automatic access to charging data is currently not considered but could be included using the available data structures.
 
 ### 2. Access to Live Car Data
 
