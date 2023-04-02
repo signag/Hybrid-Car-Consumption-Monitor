@@ -24,7 +24,7 @@
     "editable": true,
     "fiscalYearStartMonth": 0,
     "graphTooltip": 1,
-    "id": 2,
+    "id": 28,
     "links": [
         {
             "asDropdown": false,
@@ -217,7 +217,7 @@
                         "type": "influxdb"
                     },
                     "hide": false,
-                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> map(fn: (r) => ({ r with endMileage: r.startMileage + r.tripMileage }))\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])\r\n  |> cumulativeSum(columns: [\"tripMileage\"])",
+                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> sort(columns: [\"_time\"])\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> map(fn: (r) => ({ r with endMileage: r.startMileage + r.tripMileage }))\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])\r\n  |> cumulativeSum(columns: [\"tripMileage\"])",
                     "refId": "A"
                 },
                 {
@@ -225,7 +225,7 @@
                         "type": "influxdb"
                     },
                     "hide": false,
-                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
+                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> sort(columns: [\"_time\"])\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] == 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
                     "refId": "B"
                 },
                 {
@@ -233,7 +233,7 @@
                         "type": "influxdb"
                     },
                     "hide": false,
-                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\", \"fuelConsumed\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] > 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
+                    "query": "from(bucket: \"Car_Trips\")\r\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n  |> filter(fn: (r) => r[\"_measurement\"] == \"trip_shortTerm\")\r\n  |> filter(fn: (r) => r[\"vin\"] == \"$car_vin\")\r\n  |> drop(columns: [\"_measurement\", \"_start\", \"_stop\", \"vin\", \"reportReason\", \"tripID\"])\r\n  |> pivot(rowKey: [\"_time\"], columnKey: [\"_field\"], valueColumn: \"_value\")\r\n  |> sort(columns: [\"_time\"])\r\n  |> group(columns: [\"startMileage\"])\r\n  |> tail(n: 1)\r\n  |> filter(fn: (r) => r[\"fuelConsumed\"] > 0 and r[\"tripMileage\"] > 0)\r\n  |> drop(columns: [\"startMileage\", \"endMileage\", \"fuelConsumed\", \"traveltime\", \"electricPowerConsumed\"])",
                     "refId": "C"
                 }
             ],
@@ -859,6 +859,6 @@
     "timezone": "",
     "title": "KFZ Verbrauch",
     "uid": "BlTYFZO4z",
-    "version": 8,
+    "version": 3,
     "weekStart": ""
 }
