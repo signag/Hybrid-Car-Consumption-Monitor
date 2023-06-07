@@ -114,7 +114,7 @@ consumptionFromCharging = () => {
             // This needs to include the starting point (tag2 == 1) and the end point (tag2 == -1)
             // as well as all points with sufficiently high power level (tag == 1)
             |> map(fn: (r) => ({r with tag3: if r.tag2 == -1 then 1 else r.tag}))
-            // Now, we keep only the charging periods (tag == 1)
+            // Now, we keep only the charging periods (tag3 == 1)
             |> filter(fn: (r) => r["tag3"] == 1)
             // Now, we define tag4, which identifies all starting points of charging periods
             |> map(fn: (r) => ({r with tag4: if r.tag2 == 1 then 1 else 0}))
@@ -128,6 +128,10 @@ consumptionFromCharging = () => {
             // Cumulative sum of tag4 (1 only for starting points) will indicate whether a sequence is complete
             // If a sequence does not include the starting point the sum will remain zero.
             |> cumulativeSum(columns: ["tag", "tag4"])
+            // Now, we define colum "start" which will contain the starting time of a charging period
+            // For the starting point, it will be set to _time, for others zero
+            |> map(fn: (r) => ({r with start: if r.tag2 == 1 then uint(v: r._time) else uint(v: 0)}))
+            |> cumulativeSum(columns: ["start"])
             // Only the last row in each table is kept which carries the energy carged during a charging period
             // and the sum of measurement points (tag).
             // The value of tag4 indicates whether a series is complete (1) or incomplete (0)
@@ -137,6 +141,8 @@ consumptionFromCharging = () => {
             |> group()
             // Now, we keep only the rows for suffinciently long charging periods (tag > 3)
             |> filter(fn: (r) => r["tag"] > 3)
+            // Calculate start time: convert r.start from uint to int
+            |> map(fn: (r) => ({r with startcharging: int(v: r.start)}))
             // _value contains the energy, charged at a certain time
             |> duplicate(column: "_value", as: "charged")
             // The energy, charged in a specific charging period is the difference between subsequent rows
@@ -155,6 +161,7 @@ consumptionFromCharging = () => {
                     "tag3",
                     "tag4",
                     "tag5",
+                    "start",
                 ],
             )
             // Add columns required for the bucket
@@ -270,6 +277,7 @@ consNul =
                 source: "CarCharger",
                 vin: "000000000000",
                 charged: 0.0,
+                startcharging: 0,
             },
         ],
     )
@@ -284,5 +292,5 @@ cons
         timeColumn: "_time",
         measurementColumn: "_measurement",
         tagColumns: ["process", "source", "vin"],
-        fieldFn: (r) => ({"energy": r.charged}),
+        fieldFn: (r) => ({"energy": r.charged, "startcharging": r.startcharging}),
     )

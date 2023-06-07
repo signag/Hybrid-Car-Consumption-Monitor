@@ -79,6 +79,7 @@ Car_Consumption entries are created by several Influx tasks (see [Creation of In
 | _measuerement          | "consumption"
 | **field keys**         |
 | energy                 | for decharging or charging of electric energy
+| startcharging          | for charging of electric energy. Specifies the time (as int in ns) when charging started
 | fuel                   | for fuel consumption
 | **field value**        |
 | _value                 | value depending on field

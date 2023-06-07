@@ -16,6 +16,10 @@ option location = timezone.location(name: "Europe/Berlin")
 vin = "XXXXXXXXXXXXXXXXX"
 
 curMonth = boundaries.month(month_offset: 0)
+prvMonth = boundaries.month(month_offset: -1)
+nxtMonth = boundaries.month(month_offset: 1)
+curStartInt = int(v: curMonth.start)
+curStopInt = int(v: curMonth.stop)
 
 //=========================================================================================
 // check whether table has been dropped
@@ -199,13 +203,14 @@ electricEnergyConsumedElectric = if monthDataElExist  then float(v: monthDataElR
 chrgMonth =
     from(bucket: "Car_Consumption")
         // Get all Car_Consumption entries within the range, representing charging events
-        // (_field == "energy" AND source == "home")
-        |> range(start: curMonth.start, stop: curMonth.stop)
+        // (process == "charge")
+        // The range needs to include one month before and one month after the month of interest.
+        // This is because we want to assign charging events to the month in which charging started
+        // and not to the month in which charging ended (which is the timestamp of the Car_Consumtion entry)
+        |> range(start: prvMonth.start, stop: nxtMonth.stop)
         |> filter(fn: (r) => r["_measurement"] == "consumption")
         |> filter(fn: (r) => r["vin"] == vin)
-        |> filter(fn: (r) => r["_field"] == "energy")
         |> filter(fn: (r) => r["process"] == "charge")
-        // Drop unnecessary columns
         |> drop(
             columns: [
                 "_measurement",
@@ -216,9 +221,22 @@ chrgMonth =
                 "vin",
             ],
         )
-        // Add column for counting the charging events
-        |> map(fn: (r) => ({r with count: 1}))
 
+    // We need to pivot the two tables with charged energy and startcharging
+    |> pivot(rowKey: ["_time"], columnKey: ["_field"], valueColumn: "_value")
+    // Then we keep only those charging events where charging started in the month of interest
+    |> filter(fn: (r) => (r["startcharging"] >= curStartInt and r["startcharging"] <= curStopInt))
+    // Now, we adjust some columns for further processing
+    |> map(fn: (r) => ({r with _value: r.energy}))
+    |> map(fn: (r) => ({r with _field: "energy"}))
+    |> map(fn: (r) => ({r with count: 1}))
+    |> drop(
+        columns: [
+            "startcharging",
+            "energy",
+        ],
+    )
+    
 chrgTotal =
     chrgMonth
         // Sum up charged energy (_value) and number of charging events
